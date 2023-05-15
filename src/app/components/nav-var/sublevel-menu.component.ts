@@ -1,4 +1,4 @@
-/* import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { fadeInOut, INavbarData } from './helper';
@@ -96,10 +96,12 @@ export class SublevelMenuComponent implements OnInit {
     item.expanded = !item.expanded;
   }
 
-  getActiveClass(item: INavbarData): string {
-    return item.expanded && this.router.url.includes(item.routeLink) 
-      ? 'active-sublevel' 
-      : '';
+  getActiveClass(data: INavbarData): string {
+    if (data.routeLink && this.router.url.includes(data.routeLink)) {
+      return 'active';
+    }
+    return '';
   }
+  
 
-} */
+}

@@ -1,13 +1,14 @@
 import { animate, style, transition, trigger } from "@angular/animations";
-import { RouterLink } from "@angular/router";
 
 export interface INavbarData {
-    routeLink: string;
+
+    href ?: string;
+    external ?: boolean;
+    routeLink ?: string;
     icon?: string;
     label: string;
     expanded?: boolean;
     items?: INavbarData[];
-
 }
 
 export const fadeInOut = trigger('fadeInOut', [
@@ -23,4 +24,4 @@ export const fadeInOut = trigger('fadeInOut', [
         style({opacity: 0})
       )
     ])
-  ])
+  ]);

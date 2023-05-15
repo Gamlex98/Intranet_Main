@@ -1,5 +1,8 @@
 
-export const navbarData  = [
+import { INavbarData } from "./helper";
+
+export const navbarData: INavbarData[] = [
+
     {
         routeLink: 'home',              
         icon: 'fal fa-home',
@@ -10,55 +13,51 @@ export const navbarData  = [
         icon: 'far fa-arrow-alt-circle-up',
         label: 'Upload'
     },
-
     {
         routeLink: 'documentos',              
         icon: 'fal fa-file',
-        label: 'Documentos',
-       /*  items : [
+        label: 'Gestion Documental',
+        items : [
             {
-                routeLink : 'gestiondocumentos/documentos',
+                routeLink : 'documentos/documentosFresmar',
                 label: 'Documentos'
             },
             {
-                routeLink : 'gestiondocumentos/plantillas',
+                routeLink : 'documentos/plantillasFresmar',
                 label : 'Plantillas'
             },
             {
-                routeLink : 'gestiondocumentos/logos',
+                routeLink : 'documentos/logosFresmar',
                 label: 'Logos'
             },
             {
-                routeLink : 'gestiondocumentos/manuales',
+                routeLink : 'documentos/manuales-Guias-Fresmar',
                 label: 'Manuales y Guias'
             },
-        ] */
+        ]
     },
-
     {
         routeLink: 'calendario',
         icon: 'fal fa-calendar',
         label: 'Calendario'
     },
-
     {
         routeLink: 'solicitudes',
         icon: 'fal fa-book',
         label: 'Solicitudes'
     },
-    {
+     {
         href: "http://172.16.1.248/moodle/",
         icon: 'fal fa-graduation-cap',
         label: 'UniFresmar',
-        external: true
+        external : true
     },
     {
         href: "http://172.16.1.249:4244/home",
         icon: 'fal fa-university',   
         label: 'Cuadre Caja',
         external:true
-    },
-
+    }, 
     {
         routeLink: 'login',
         icon: 'fal fa-sign-in',

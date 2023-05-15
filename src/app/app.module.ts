@@ -29,7 +29,6 @@ import { CarouselComponent } from './components/home/child/carousel/carousel.com
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { DocumentsComponent } from './components/documents/documents.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
@@ -42,6 +41,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { UploadComponent } from './components/upload/upload.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { SublevelMenuComponent } from './components/nav-var/sublevel-menu.component';
 
 @NgModule({
   declarations: [
@@ -56,8 +56,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     CardComponent,
     InfoComplementComponent,
     CarouselComponent,
-    DocumentsComponent,
     UploadComponent,
+    SublevelMenuComponent
     
   ],
   imports: [
@@ -90,8 +90,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     FontAwesomeModule,
     InputTextModule,
     CalendarModule,
-    MatProgressBarModule
-    
+    MatProgressBarModule    
   ],
   providers: [Validators, 
             { provide: HAMMER_GESTURE_CONFIG, useClass: LyHammerGestureConfig }, [ LyTheme2 ],
