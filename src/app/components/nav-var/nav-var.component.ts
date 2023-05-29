@@ -2,7 +2,7 @@ import { animate, keyframes, style, transition, trigger } from '@angular/animati
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { navbarData } from './nav-data';
-import { INavbarData, fadeInOut } from './helper';
+import { INavbarData, fadeInOut} from './helper';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -29,55 +29,51 @@ interface SideNavToggle {
 })
 export class NavVarComponent implements OnInit{
 
-  @Output() onToggleSidenav: EventEmitter<SideNavToggle> = new EventEmitter();
+  @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   
-  collapsed = true;
+  collapsed = false;
   screenWidth = 0;
   navData= navbarData;
   multiple: boolean = false;
 
-  constructor(public router:Router) {}
 
+ 
+
+  constructor(public router: Router) {}
   @HostListener('window:resize', ['$event'])
-
   ngOnInit(): void {
     this.screenWidth= window.innerWidth;
     if (this.screenWidth <= 768) {
       this.collapsed= false;
-      this.onToggleSidenav.emit({collapsed:this.collapsed, screenWidth: this.screenWidth});
+      this.onToggleSideNav.emit({collapsed:this.collapsed, screenWidth: this.screenWidth});
     } else {
       this.collapsed= true;
-      this.onToggleSidenav.emit({collapsed:this.collapsed, screenWidth: this.screenWidth});
+      this.onToggleSideNav.emit({collapsed:this.collapsed, screenWidth: this.screenWidth});
     }
   }
-
-  /* onResize(event: any) {
-    this.screenWidth = window.innerWidth;
-    if(this.screenWidth <= 768 ) {
-      this.collapsed = false;
-      this.onToggleSidenav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
-    }
-  } */
-
-  toggleCollapse(): void {
-    this.collapsed = !this.collapsed;
-    this.onToggleSidenav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
+  
+  togglecollapse():void {
+    this.collapsed= !this.collapsed;
+    this.onToggleSideNav.emit({collapsed:this.collapsed, screenWidth: this.screenWidth});
   }
+
   closeSidenav():void {
     this.collapsed= false;
-    this.onToggleSidenav.emit({collapsed:this.collapsed, screenWidth: this.screenWidth});
+    this.onToggleSideNav.emit({collapsed:this.collapsed, screenWidth: this.screenWidth});
   }
 
-  handleClick(item: INavbarData): void {
-    this.shrinkItems(item);
-    item.expanded = !item.expanded
+  handleClick(data: INavbarData): void {
+    if (data.items && data.items.length > 0) {
+      data.expanded = !data.expanded;
+    } else {
+      // Aquí puedes agregar el código para redirigir a la página correspondiente
+      this.router.navigate([data.routeLink]);
+    }
   }
+  
 
   getActiveClass(data: INavbarData): string {
-  if (data.routeLink && this.router.url.includes(data.routeLink)) {
-    return 'active';
-  }
-  return '';
+    return this.router.url.includes(data.routeLink) ? 'active' : '';
   }
 
   shrinkItems(item: INavbarData): void {

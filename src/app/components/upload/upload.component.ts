@@ -53,7 +53,7 @@ export class UploadComponent {
 
   onUpload() {
     const pruebaCarpeta = 'carpetaNull';
-    const uploadUrl = `http://172.16.1.24:8095/cgi-bin/filemanager/utilRequest.cgi?func=upload&type=standard&sid=${this.sid}&dest_path=/Web/${pruebaCarpeta}&overwrite=1&progress=-Web`;
+    const uploadUrl = `http://172.16.1.24:8095/cgi-bin/filemanager/utilRequest.cgi?func=upload&type=standard&sid=${this.sid}&dest_path=/Web/${this.rutaRelativa}&overwrite=1&progress=-Web`;
 
     const formData = new FormData();
     formData.append('file', this.fileToUpload, this.fileToUpload.name);

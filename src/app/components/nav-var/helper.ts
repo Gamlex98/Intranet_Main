@@ -4,7 +4,7 @@ export interface INavbarData {
 
     href ?: string;
     external ?: boolean;
-    routeLink ?: string;
+    routeLink ?: any;
     icon?: string;
     label: string;
     expanded?: boolean;

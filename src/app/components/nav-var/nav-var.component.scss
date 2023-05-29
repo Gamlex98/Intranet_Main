@@ -1,3 +1,4 @@
+  
 .sidenav {
     background: #263238;
     transition: all .5s ease;
@@ -148,7 +149,7 @@
             }
 
             .sublevel-link-text {
-                margin-left: 0.8rem;
+                margin-left: 0.5rem;
             }
         }
 
@@ -157,6 +158,8 @@
         }
     }
 }
+
+//scrollbar and visibility on hover and focus
 
 .scrollwrap {
     overflow-y: auto;

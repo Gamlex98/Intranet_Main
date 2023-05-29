@@ -8,7 +8,6 @@ import { DocumentModel } from 'app/models/document.model';
 import { FileService } from 'app/services/file.service';
 import { MatSort } from '@angular/material/sort';
 
-
 @Component({
   selector: 'documents',
   styleUrls: ['documentos.component.css'],
@@ -129,15 +128,15 @@ export class DocumentosComponent implements OnInit ,AfterViewInit {
         next: (data:any)=>{
           console.log("informacion guardada en la base de datos");
         },
-        error:(e)=> console.log(e)
+        error:(e)=> console.log("Error en el envio a la BD", e)
       });
     }
   }
 
-  getNombrearchivo(nombre:any) {
+ /*  getNombrearchivo(nombre:any) {
     this.service.getNombre(nombre);
     console.log("este es el nombre:" + nombre);
-  }
+  } */
   
   downloadFile(url: string, nombre: string): void {
     this.service.getNombre(nombre).subscribe((comunicado: any) => {

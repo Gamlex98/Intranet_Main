@@ -1,4 +1,3 @@
-import { style } from '@angular/animations';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -8,18 +7,16 @@ import { Component, Input } from '@angular/core';
 })
 export class BodyComponent {
 
-    @Input() collapsed = false;
-    @Input() screenWidth = 0;
+  @Input() collapsed = false;
+  @Input() screenWidth = 0;
 
-    getBodyClass (): string {
-      let styleclass = '';
-
-      if (this.collapsed && this.screenWidth > 768) {
-        styleclass = 'body-trimmed';
-
-      } else if (this.collapsed && this.screenWidth <= 768 && this.screenWidth > 0) {
-        styleclass = 'body-md-screen'
-      }
-      return styleclass;
+  getBodyClass(): string {
+    let styleClass = '';
+    if(this.collapsed && this.screenWidth > 768) {
+      styleClass = 'body-trimmed';
+    } else if(this.collapsed && this.screenWidth <= 768 && this.screenWidth > 0) {
+      styleClass = 'body-md-screen'
     }
+    return styleClass;
+  }
 }

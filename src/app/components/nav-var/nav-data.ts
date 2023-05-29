@@ -14,12 +14,13 @@ export const navbarData: INavbarData[] = [
         label: 'Upload'
     },
     {
-        routeLink: 'documentos',              
-        icon: 'fal fa-file',
+        routeLink: 'documentos/documentosFresmar',              
+        icon: 'fa fa-folder',
         label: 'Gestion Documental',
         items : [
             {
                 routeLink : 'documentos/documentosFresmar',
+                icon: 'fa fa-folder',
                 label: 'Documentos'
             },
             {
@@ -32,6 +33,7 @@ export const navbarData: INavbarData[] = [
             },
             {
                 routeLink : 'documentos/manuales-Guias-Fresmar',
+                icon: 'fa fa-file',
                 label: 'Manuales y Guias'
             },
         ]

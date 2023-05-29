@@ -81,6 +81,7 @@ export class SublevelMenuComponent implements OnInit {
   constructor(public router: Router) {}
 
   ngOnInit(): void {
+    
   }
 
   handleClick(item: any): void {
@@ -96,12 +97,9 @@ export class SublevelMenuComponent implements OnInit {
     item.expanded = !item.expanded;
   }
 
-  getActiveClass(data: INavbarData): string {
-    if (data.routeLink && this.router.url.includes(data.routeLink)) {
-      return 'active';
-    }
-    return '';
+  getActiveClass(item: INavbarData): string {
+    return item.expanded && this.router.url.includes(item.routeLink) 
+      ? 'active-sublevel' 
+      : '';
   }
-  
-
 }
